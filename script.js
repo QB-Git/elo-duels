@@ -1,13 +1,14 @@
 let elements = [];
 let eloRatings = {};
 let duelPairs = [];
-let maxDuels = 38; // Limiter à un nombre de duels (par exemple 38)
+let maxDuels = 99; // Limiter à un nombre de duels (par exemple 38)
 let duelCount = 0;
 
 // Fonction pour démarrer les duels
 function startDuels() {
   const input = document.querySelector("[data-competitors-list]").value;
   elements = input.split("\n").filter(el => el.trim() !== "");
+  maxDuels = elements.length * 3;
   eloRatings = {};
   elements.forEach(element => eloRatings[element] = 1000); // ELO initial pour tous les éléments
 
